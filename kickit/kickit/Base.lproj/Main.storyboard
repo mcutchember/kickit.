@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="33f-5m-kXg">
             <objects>
-                <viewController id="aCL-RC-1hR" sceneMemberID="viewController">
+                <viewController id="aCL-RC-1hR" customClass="ViewController" customModule="kickit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6bf-0l-hQI"/>
                         <viewControllerLayoutGuide type="bottom" id="RUS-L2-da7"/>
@@ -55,6 +55,9 @@
                                 <state key="normal" title="highscores">
                                     <color key="titleColor" red="0.1161725596" green="0.8696293235" blue="0.78553122279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="highscoreButton:" destination="aCL-RC-1hR" eventType="touchUpInside" id="IzG-dW-LzU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrm-Zj-LNk">
                                 <rect key="frame" x="134" y="484" width="107" height="33"/>
