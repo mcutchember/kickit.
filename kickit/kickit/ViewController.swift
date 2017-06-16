@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import Social
 
 class ViewController: UIViewController {
     
@@ -20,9 +21,6 @@ class ViewController: UIViewController {
         HighScoreManager().loadAcheivementPercentages()
     }
 
-    
-    
-  
 
     @IBAction func highscoreButton(_ sender: Any) {
         
@@ -32,6 +30,26 @@ class ViewController: UIViewController {
     }
     
     
-
+    @IBAction func shareToTwitter(_ sender: Any) {
+        
+        if let vc = SLComposeViewController(forServiceType:SLServiceTypeTwitter){
+        //vc.add(imageView.image!)
+        vc.add(URL(string: "http://www.example.com/"))
+        vc.setInitialText("I'm playing my new favorite game, Kickit. Bet you can't beat my score!")
+        self.present(vc, animated: true, completion: nil)
+        
+        }
+    }
+    
+    @IBAction func shareToFacebook(_ sender: Any) {
+        
+        if let vc = SLComposeViewController(forServiceType:SLServiceTypeFacebook){
+        //vc.add(imageView.image!)
+        vc.add(URL(string: "http://www.example.com/"))
+        vc.setInitialText("I'm playing my new favorite game, Kickit. Bet you can't beat my score!")
+        self.present(vc, animated: true, completion: nil)
+        }
+        
+    }
 }
 
