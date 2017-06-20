@@ -84,6 +84,24 @@ class HighScoreManager: NSObject, GKGameCenterControllerDelegate{
 		loadAcheivementPercentages()
 	}
 	
+	func saveHighScore(identifier: String, highscore: Int) {
+		
+		if GKLocalPlayer.localPlayer().isAuthenticated {
+			let reporter = GKScore(leaderboardIdentifier: identifier)
+			let scoreArray = [reporter]
+			
+			reporter.value = Int64(highscore)
+			
+			GKScore.report(scoreArray, withCompletionHandler:
+				{ (error) -> Void in
+					guard error == nil else {
+						print(error ?? "NO")
+						return
+					}
+			})
+		}
+	}
+	
 }
 
 
