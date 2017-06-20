@@ -49,6 +49,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet var startLabel: UILabel!
     @IBOutlet var clockLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
     
     
     
@@ -91,8 +92,12 @@ class GameViewController: UIViewController {
         
         // Add the new enemy to the view
         let enemyView = UIView(frame: .zero)
+        let enemy = "👮".image()
+        let imageView = UIImageView(image: enemy)
+        enemyView.addSubview(imageView)
+        
         enemyView.bounds.size = CGSize(width: radius, height: radius)
-        enemyView.backgroundColor = getRandomColor()
+        //enemyView.backgroundColor = getRandomColor()
         
         switch screenEdge! {
         case .left:
@@ -127,6 +132,9 @@ class GameViewController: UIViewController {
         checkCollision()
     }
    
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 fileprivate extension GameViewController {
@@ -304,6 +312,21 @@ fileprivate extension GameViewController {
         animation.repeatCount = 1
         animation.beginTime = CACurrentMediaTime()
         playerView.layer.add(animation, forKey: "pop")
+    }
+    
+}
+
+extension String {
+    func image() -> UIImage {
+        let size = CGSize(width: 30, height: 35)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0);
+        UIColor.clear.set()
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size: size)
+        UIRectFill(CGRect(origin: CGPoint(x: 0,y :0), size: size))
+        (self as NSString).draw(in: rect, withAttributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 30)])
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
     
 }
