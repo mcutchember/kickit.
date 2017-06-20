@@ -17,16 +17,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        HighScoreManager().authenticateLocalPlayer(view: self.view)
-        HighScoreManager().loadAcheivementPercentages()
+		HighScoreManager.sharedInstance.authenticateLocalPlayer(view: self.view)
+		HighScoreManager.sharedInstance.loadAcheivementPercentages()
     }
 
 
     @IBAction func highscoreButton(_ sender: Any) {
-        
-        HighScoreManager().declareGameCenterController()
         let vc: UIViewController = self.view!.window!.rootViewController!
-        vc.present(HighScoreManager().gameCenterViewController, animated: true, completion: nil)
+        vc.present(HighScoreManager.sharedInstance.declareGameCenterController(), animated: true, completion: nil)
     }
     
     
