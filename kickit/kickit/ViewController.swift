@@ -49,8 +49,8 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 	
 	
 	@IBAction func highscoreButton(_ sender: Any) {
-		//        let vc: UIViewController = self.view!.window!.rootViewController!
-		//        vc.present(HighScoreManager.sharedInstance.declareGameCenterController(), animated: true, completion: nil)
+		        let vc: UIViewController = self.view!.window!.rootViewController!
+		        vc.present(HighScoreManager.sharedInstance.declareGameCenterController(), animated: true, completion: nil)
 		
 		if interstitial.isReady {
 			interstitial.present(fromRootViewController: self)

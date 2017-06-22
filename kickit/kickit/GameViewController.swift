@@ -311,7 +311,8 @@ fileprivate extension GameViewController {
 		)
 		let action2 = UIAlertAction(title: "Share your score", style: .default,
 		                           handler: { _ in
-									self.dismiss(animated: true, completion: nil)
+									//TODO: Add Share  
+                                    self.dismiss(animated: true, completion: nil)
 		}
 		)
 		alert.addAction(action)
