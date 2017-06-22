@@ -92,7 +92,7 @@ class GameViewController: UIViewController {
         
         // Add the new enemy to the view
         let enemyView = UIView(frame: .zero)
-        let enemy = "👮".image()
+        let enemy = "🚔".image()
         let imageView = UIImageView(image: enemy)
         enemyView.addSubview(imageView)
         
