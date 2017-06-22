@@ -43,21 +43,12 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 		HighScoreManager.sharedInstance.authenticateLocalPlayer(view: self.view)
 		HighScoreManager.sharedInstance.loadAcheivementPercentages()
 		
-		interstitial = createAndLoadInterstitial()
-		
 	}
 	
 	
 	@IBAction func highscoreButton(_ sender: Any) {
-		//        let vc: UIViewController = self.view!.window!.rootViewController!
-		//        vc.present(HighScoreManager.sharedInstance.declareGameCenterController(), animated: true, completion: nil)
-		
-		if interstitial.isReady {
-			interstitial.present(fromRootViewController: self)
-		} else {
-			print("Ad wasn't ready")
-		}
-		
+		let vc: UIViewController = self.view!.window!.rootViewController!
+		vc.present(HighScoreManager.sharedInstance.declareGameCenterController(), animated: true, completion: nil)
 	}
 	
 	
@@ -82,20 +73,5 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 		}
 		
 	}
-	
-	
-	func createAndLoadInterstitial() -> GADInterstitial {
-		interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
-		interstitial.delegate = self
-		let request = GADRequest()
-		request.testDevices = [ kGADSimulatorID, "B270CD6C-F126-4C2D-937D-3B5D67056257" ];
-		self.interstitial.load(request)
-		return interstitial
-	}
-	
-	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-		interstitial = createAndLoadInterstitial()
-	}
-	
 }
 
