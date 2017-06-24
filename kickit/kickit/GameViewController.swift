@@ -54,7 +54,12 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 	@IBOutlet var clockLabel: UILabel!
 	
 	
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 	
+    
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		

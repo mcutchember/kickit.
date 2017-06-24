@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aCL-RC-1hR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aCL-RC-1hR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -131,13 +131,22 @@
                                 <color key="textColor" red="0.58431375029999999" green="0.82352942230000004" blue="0.4196078479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZ3-Ya-Phs">
+                                <rect key="frame" x="16" y="15" width="50" height="50"/>
+                                <state key="normal" image="x-circle"/>
+                                <connections>
+                                    <action selector="backButton:" destination="abC-YZ-dax" eventType="touchUpInside" id="P1d-ka-a2O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.94247645550000003" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8W2-tn-ybG" firstAttribute="top" secondItem="I34-OB-Mez" secondAttribute="bottom" constant="197.5" id="2Nn-Kl-xhF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aZY-03-20W" secondAttribute="trailing" id="2Ub-bq-Z1O"/>
                             <constraint firstItem="I34-OB-Mez" firstAttribute="centerX" secondItem="Uce-a9-k4V" secondAttribute="centerX" id="M0y-pY-mnr"/>
+                            <constraint firstItem="UZ3-Ya-Phs" firstAttribute="top" secondItem="XQR-jQ-zPg" secondAttribute="bottom" constant="-5" id="bv2-Zb-3Kr"/>
                             <constraint firstItem="aZY-03-20W" firstAttribute="top" secondItem="XQR-jQ-zPg" secondAttribute="bottom" id="dBE-ku-3Gt"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="UZ3-Ya-Phs" secondAttribute="leading" id="iIn-Uz-dDb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -220,5 +229,6 @@
         <image name="facebook" width="128" height="128"/>
         <image name="kickit_icon-1" width="303" height="316"/>
         <image name="twitter" width="128" height="128"/>
+        <image name="x-circle" width="50" height="50"/>
     </resources>
 </document>
