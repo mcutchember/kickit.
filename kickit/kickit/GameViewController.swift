@@ -131,7 +131,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		checkCollision()
 	}
 	
-	// Load add from AddMob
+	// Load ad from AddMob
 	func createAndLoadInterstitial() -> GADInterstitial {
 		interstitial = GADInterstitial(adUnitID: "ca-app-pub-7367066270682286/3663865657")
 		interstitial.delegate = self
