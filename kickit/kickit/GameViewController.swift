@@ -104,10 +104,12 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 			let imageView = UIImageView(image: UIImage(data: enemy, scale: 0.5))
 			imageView.frame = enemyView.frame
 			enemyView.addSubview(imageView)
-		}
+        } else {
+            enemyView.bounds.size = CGSize(width: radius, height: radius)
+            enemyView.backgroundColor = getRandomColor()
+        }
 		
-//		enemyView.bounds.size = CGSize(width: radius, height: radius)
-		//enemyView.backgroundColor = getRandomColor()
+
 		
 		switch screenEdge! {
 		case .left:
@@ -172,9 +174,9 @@ fileprivate extension GameViewController {
 		
 		
 		if let player = defaults.data(forKey: "playerImage") {
-			let imageView = UIImageView(image: UIImage(data: player, scale: 0.5))
+			let imageView = UIImageView(image: UIImage(data: player, scale: 1))
 			imageView.frame = playerView.frame
-			playerView.layer.cornerRadius = 0
+			playerView.layer.cornerRadius = 5
 			playerView.addSubview(imageView)
 		}
 		
