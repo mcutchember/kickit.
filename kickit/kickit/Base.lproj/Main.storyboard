@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aCL-RC-1hR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
@@ -83,10 +82,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hjs-oo-5uT">
-                                <rect key="frame" x="154" y="485" width="66" height="30"/>
+                                <rect key="frame" x="92" y="484" width="190" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="options"/>
+                                <state key="normal" title="change player &amp; enemy">
+                                    <color key="titleColor" red="0.2274509804" green="0.25490196079999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.94247645547945202" colorSpace="custom" customColorSpace="sRGB"/>
@@ -112,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pB3-s8-VTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="224.80000000000001" y="92.203898050974516"/>
+            <point key="canvasLocation" x="146" y="81"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="6iN-lz-cNj">
@@ -166,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybh-nk-4dP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="92"/>
+            <point key="canvasLocation" x="1623" y="81"/>
         </scene>
         <!--How2 View Controller-->
         <scene sceneID="KKU-eq-UEW">
@@ -232,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0W-kB-37J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="818"/>
+            <point key="canvasLocation" x="145" y="819"/>
         </scene>
         <!--Upload Custom Images View Controller-->
         <scene sceneID="dyY-2W-NjX">
@@ -242,7 +243,7 @@
                         <viewControllerLayoutGuide type="top" id="Y3X-W6-m08"/>
                         <viewControllerLayoutGuide type="bottom" id="A29-iC-9T4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NeC-r7-ZXE">
+                    <view key="view" contentMode="scaleAspectFit" id="NeC-r7-ZXE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -270,9 +271,9 @@
                                 <rect key="frame" x="162" y="401" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-9O-JjS">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-9O-JjS">
                                 <rect key="frame" x="162" y="401" width="50" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ball"/>
                                 <connections>
                                     <action selector="playerAction:" destination="B2w-e7-aQo" eventType="touchUpInside" id="eYE-zB-Sh4"/>
                                 </connections>
@@ -285,7 +286,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQA-Rj-LuU">
                                 <rect key="frame" x="77" y="575" width="220" height="51"/>
-                                <color key="backgroundColor" red="0.14724392359999999" green="0.83694118920000005" blue="0.51743862279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.25490196079999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="ok, i got it.">
                                     <color key="titleColor" red="1" green="1" blue="0.90117730029999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -342,26 +343,9 @@
             </objects>
             <point key="canvasLocation" x="882" y="81"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Kcg-Sw-9d3">
-            <objects>
-                <viewController id="Oas-FF-F86" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OXG-Iw-Oec"/>
-                        <viewControllerLayoutGuide type="bottom" id="76j-nW-jd0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="h5X-5e-9nQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.16825252771377563" green="0.18030247092247009" blue="0.18865081667900085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jnE-eT-nKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1018" y="813"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="ball" width="50" height="50"/>
         <image name="facebook" width="128" height="128"/>
         <image name="kickit_icon-1" width="303" height="316"/>
         <image name="twitter" width="128" height="128"/>
