@@ -8,8 +8,11 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 import GoogleMobileAds
+=======
 import AVFoundation
+>>>>>>> ui
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
