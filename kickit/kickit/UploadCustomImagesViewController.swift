@@ -69,11 +69,13 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 		switch self.typeForImage {
 		case "Enemy":
 			self.defaults.set(pngImageData, forKey: "enemyImage")
+            enemyButton.setImage(image, for: .normal)
 			print("Enemy image saved!")
 			break
 		case "Player":
 			self.defaults.set(pngImageData, forKey: "playerImage")
 			print("Player image saved!")
+            playerButton.setImage(image, for: .normal)
 			break
 		default:
 			break

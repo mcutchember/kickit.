@@ -252,14 +252,17 @@
                                 <rect key="frame" x="162" y="221" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.54863822460174561" green="0.0" blue="0.97633141279220581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INz-Dc-1Ls">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INz-Dc-1Ls">
                                 <rect key="frame" x="162" y="221" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.5486382246" green="0.0" blue="0.97633141280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="enemy">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="enemyAction:" destination="B2w-e7-aQo" eventType="touchUpInside" id="VgX-ny-gQR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ememy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-eK-UHe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enemy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-eK-UHe">
                                 <rect key="frame" x="146" y="298" width="82" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="82" id="b5l-on-fSP"/>
@@ -348,6 +351,10 @@
                             <constraint firstItem="A29-iC-9T4" firstAttribute="top" secondItem="33G-Xn-LKX" secondAttribute="bottom" constant="168" id="vij-pK-tZm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enemyButton" destination="INz-Dc-1Ls" id="rdV-Jf-xEF"/>
+                        <outlet property="playerButton" destination="A5O-9O-JjS" id="ICY-gC-AAu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqL-rL-8jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,6 +363,7 @@
     </scenes>
     <resources>
         <image name="ball" width="50" height="50"/>
+        <image name="enemy" width="50" height="50"/>
         <image name="facebook" width="128" height="128"/>
         <image name="kickit_icon-1" width="303" height="316"/>
         <image name="twitter" width="128" height="128"/>
