@@ -13,14 +13,17 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 	let picker = UIImagePickerController()
 	var typeForImage = ""
 	
+	var enemyImage: UIImage?
+	var playerImage: UIImage?
+	
+	var defaults = UserDefaults.standard
+	
 	@IBOutlet weak var enemyButton: UIButton!
 	@IBOutlet weak var playerButton: UIButton!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		picker.delegate = self
-		
-		// Do any additional setup after loading the view.
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -46,13 +49,40 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 		present(picker, animated: true, completion: nil)
 	}
 	
- //MARK: - Delegates
-	@nonobjc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
-	{
-		let _ = info[UIImagePickerControllerOriginalImage] as! UIImage 
+	@IBAction func okAction(_ sender: UIButton) {
 		dismiss(animated: true, completion: nil)
 	}
-	@nonobjc func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+	
+ //MARK: - Delegates
+	
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		dismiss(animated: true, completion: nil)
+	}
+	
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		print(info.debugDescription)
+		
+	 if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+		
+		let pngImageData = UIImagePNGRepresentation(image)
+		
+		switch self.typeForImage {
+		case "Enemy":
+			self.defaults.set(pngImageData, forKey: "enemyImage")
+			print("Enemy image saved!")
+			break
+		case "Player":
+			self.defaults.set(pngImageData, forKey: "playerImage")
+			print("Player image saved!")
+			break
+		default:
+			break
+		}
+		
+	} else {
+		print("Something went wrong")
+	 }
+		
 		dismiss(animated: true, completion: nil)
 	}
 	

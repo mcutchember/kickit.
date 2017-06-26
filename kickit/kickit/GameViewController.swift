@@ -52,7 +52,12 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 	
 	@IBOutlet var startLabel: UILabel!
 	@IBOutlet var clockLabel: UILabel!
+	@IBOutlet var backButton: UIButton!
 	
+	
+	var enemyImage: UIImage?
+	var playerImage: UIImage?
+	var defaults = UserDefaults.standard
 	
 	
 	override func viewDidLoad() {
@@ -94,9 +99,15 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		}
 		
 		// Add the new enemy to the view
-		let enemyView = UIView(frame: .zero)
-		enemyView.bounds.size = CGSize(width: radius, height: radius)
-		enemyView.backgroundColor = getRandomColor()
+		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+		if let enemy = defaults.data(forKey: "enemyImage") {
+			let imageView = UIImageView(image: UIImage(data: enemy, scale: 0.5))
+			imageView.frame = enemyView.frame
+			enemyView.addSubview(imageView)
+		}
+		
+//		enemyView.bounds.size = CGSize(width: radius, height: radius)
+		//enemyView.backgroundColor = getRandomColor()
 		
 		switch screenEdge! {
 		case .left:
@@ -131,12 +142,16 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		checkCollision()
 	}
 	
+	@IBAction func backButton(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
+	
 	// Load add from AddMob
 	func createAndLoadInterstitial() -> GADInterstitial {
 		interstitial = GADInterstitial(adUnitID: "ca-app-pub-7367066270682286/3663865657")
 		interstitial.delegate = self
 		let request = GADRequest()
-		request.testDevices = [ kGADSimulatorID, "B270CD6C-F126-4C2D-937D-3B5D67056257" ];
+		//request.testDevices = [ kGADSimulatorID, "B270CD6C-F126-4C2D-937D-3B5D67056257" ];
 		self.interstitial.load(request)
 		return interstitial
 	}
@@ -150,9 +165,18 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 
 fileprivate extension GameViewController {
 	func setupPlayerView() {
-		playerView.bounds.size = CGSize(width: radius * 2, height: radius * 2)
+		playerView.frame = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
+		//playerView.bounds.size = CGSize(width: radius * 2, height: radius * 2)
 		playerView.layer.cornerRadius = radius
 		playerView.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+		
+		
+		if let player = defaults.data(forKey: "playerImage") {
+			let imageView = UIImageView(image: UIImage(data: player, scale: 0.5))
+			imageView.frame = playerView.frame
+			playerView.layer.cornerRadius = 0
+			playerView.addSubview(imageView)
+		}
 		
 		view.addSubview(playerView)
 	}
