@@ -252,7 +252,7 @@
                                 <rect key="frame" x="162" y="221" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.54863822460174561" green="0.0" blue="0.97633141279220581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INz-Dc-1Ls">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INz-Dc-1Ls">
                                 <rect key="frame" x="162" y="221" width="50" height="50"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="enemy">
@@ -280,7 +280,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-9O-JjS">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-9O-JjS">
                                 <rect key="frame" x="162" y="401" width="50" height="50"/>
                                 <state key="normal" image="ball"/>
                                 <userDefinedRuntimeAttributes>
@@ -299,7 +299,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQA-Rj-LuU">
-                                <rect key="frame" x="77" y="575" width="220" height="51"/>
+                                <rect key="frame" x="77" y="552" width="220" height="51"/>
                                 <color key="backgroundColor" red="0.14724392359999999" green="0.83694118920000005" blue="0.51743862279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="ok, i got it.">
@@ -318,6 +318,19 @@
                                 <color key="textColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zZ-Yk-YhQ">
+                                <rect key="frame" x="164" y="617" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="71I-Rb-vh1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButton:" destination="B2w-e7-aQo" eventType="touchUpInside" id="iSv-ee-eE6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.94247645550000003" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -332,14 +345,17 @@
                             <constraint firstItem="Y1o-eK-UHe" firstAttribute="trailing" secondItem="33G-Xn-LKX" secondAttribute="trailing" id="EYi-Rd-JO7"/>
                             <constraint firstItem="A5O-9O-JjS" firstAttribute="centerX" secondItem="0nj-26-UPp" secondAttribute="centerX" id="Fnr-7Z-1HV"/>
                             <constraint firstItem="PKQ-87-q1r" firstAttribute="top" secondItem="Y3X-W6-m08" secondAttribute="bottom" constant="39" id="HKA-O8-LGU"/>
-                            <constraint firstItem="mQA-Rj-LuU" firstAttribute="top" secondItem="33G-Xn-LKX" secondAttribute="bottom" constant="76" id="LKk-Fv-f2J"/>
+                            <constraint firstItem="9zZ-Yk-YhQ" firstAttribute="centerX" secondItem="mQA-Rj-LuU" secondAttribute="centerX" id="Ko2-ia-cZ6"/>
+                            <constraint firstItem="mQA-Rj-LuU" firstAttribute="top" secondItem="33G-Xn-LKX" secondAttribute="bottom" constant="53" id="LKk-Fv-f2J"/>
+                            <constraint firstAttribute="bottom" secondItem="9zZ-Yk-YhQ" secondAttribute="bottom" constant="20" symbolic="YES" id="QuE-sd-Xag"/>
+                            <constraint firstItem="9zZ-Yk-YhQ" firstAttribute="top" secondItem="mQA-Rj-LuU" secondAttribute="bottom" constant="14" id="SaK-CZ-VEW"/>
                             <constraint firstItem="2zz-28-SBE" firstAttribute="trailing" secondItem="0nj-26-UPp" secondAttribute="trailing" id="Tlr-bd-Nem"/>
                             <constraint firstItem="mQA-Rj-LuU" firstAttribute="leading" secondItem="NeC-r7-ZXE" secondAttribute="leadingMargin" constant="61" id="UbY-1V-EFn"/>
                             <constraint firstItem="A5O-9O-JjS" firstAttribute="height" secondItem="0nj-26-UPp" secondAttribute="height" id="VFl-eY-mQc"/>
                             <constraint firstItem="2zz-28-SBE" firstAttribute="top" secondItem="PKQ-87-q1r" secondAttribute="bottom" constant="85" id="Yeo-gL-DTy"/>
                             <constraint firstItem="33G-Xn-LKX" firstAttribute="top" secondItem="0nj-26-UPp" secondAttribute="bottom" constant="27" id="ZEb-37-L6E"/>
                             <constraint firstItem="mQA-Rj-LuU" firstAttribute="centerX" secondItem="33G-Xn-LKX" secondAttribute="centerX" id="apW-Wi-Upf"/>
-                            <constraint firstItem="A29-iC-9T4" firstAttribute="top" secondItem="mQA-Rj-LuU" secondAttribute="bottom" constant="41" id="eUN-Zb-4wH"/>
+                            <constraint firstItem="A29-iC-9T4" firstAttribute="top" secondItem="mQA-Rj-LuU" secondAttribute="bottom" constant="64" id="eUN-Zb-4wH"/>
                             <constraint firstItem="A5O-9O-JjS" firstAttribute="centerY" secondItem="0nj-26-UPp" secondAttribute="centerY" id="lXb-Pe-61E"/>
                             <constraint firstItem="0nj-26-UPp" firstAttribute="top" secondItem="Y1o-eK-UHe" secondAttribute="bottom" constant="82" id="m6E-gd-TAa"/>
                             <constraint firstItem="PKQ-87-q1r" firstAttribute="centerX" secondItem="2zz-28-SBE" secondAttribute="centerX" id="p0B-Q0-o1N"/>
@@ -358,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqL-rL-8jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="817"/>
+            <point key="canvasLocation" x="989.60000000000002" y="796.55172413793105"/>
         </scene>
     </scenes>
     <resources>

@@ -52,6 +52,20 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 	@IBAction func okAction(_ sender: UIButton) {
 		dismiss(animated: true, completion: nil)
 	}
+    
+    
+    @IBAction func resetButton(_ sender: Any) {
+        
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        
+        // set enemy back
+        enemyButton.setImage(#imageLiteral(resourceName: "enemy"), for: .normal)
+        playerButton.setImage(#imageLiteral(resourceName: "ball"), for: .normal)
+    }
+    
+    
 	
  //MARK: - Delegates
 	
@@ -70,12 +84,14 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 		case "Enemy":
 			self.defaults.set(pngImageData, forKey: "enemyImage")
             enemyButton.setImage(image, for: .normal)
+            
 			print("Enemy image saved!")
 			break
 		case "Player":
 			self.defaults.set(pngImageData, forKey: "playerImage")
 			print("Player image saved!")
             playerButton.setImage(image, for: .normal)
+            playerButton.makeCircular()
 			break
 		default:
 			break
@@ -89,3 +105,6 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 	}
 	
 }
+
+
+

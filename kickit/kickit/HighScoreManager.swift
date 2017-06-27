@@ -58,7 +58,7 @@ class HighScoreManager: NSObject, GKGameCenterControllerDelegate{
 		
 		GKAchievement.loadAchievements { (allAchievements, error) -> Void in
 			if error != nil {
-				print("Game center did not load achievements, the error is \(error)")
+				print("Game center did not load achievements, the error is \(String(describing: error))")
 			} else {
 				// this could be nil if there was no progress on any achievements thus far.
 				if (allAchievements != nil) {

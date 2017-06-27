@@ -176,7 +176,7 @@ fileprivate extension GameViewController {
 		if let player = defaults.data(forKey: "playerImage") {
 			let imageView = UIImageView(image: UIImage(data: player, scale: 1))
 			imageView.frame = playerView.frame
-			playerView.layer.cornerRadius = 5
+			playerView.makeCircular()
 			playerView.addSubview(imageView)
 		}
 		
@@ -376,4 +376,12 @@ fileprivate extension GameViewController {
 	
 	
 	
+}
+
+
+extension UIView{
+    func makeCircular() {
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
+        self.clipsToBounds = true
+    }
 }
