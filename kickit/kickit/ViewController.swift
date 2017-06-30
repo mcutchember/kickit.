@@ -58,8 +58,8 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 		
 		if let vc = SLComposeViewController(forServiceType:SLServiceTypeTwitter){
 			//vc.add(imageView.image!)
-			vc.add(URL(string: "http://www.example.com/"))
-			vc.setInitialText("I'm playing my new favorite game, Kickit. Bet you can't beat my score!")
+			vc.add(URL(string: "http://www.myles.website/"))
+			vc.setInitialText("try to beat my score on kickit.")
 			self.present(vc, animated: true, completion: nil)
 			
 		}
@@ -69,8 +69,8 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 		
 		if let vc = SLComposeViewController(forServiceType:SLServiceTypeFacebook){
 			//vc.add(imageView.image!)
-			vc.add(URL(string: "http://www.example.com/"))
-			vc.setInitialText("I'm playing my new favorite game, Kickit. Bet you can't beat my score!")
+			vc.add(URL(string: "http://www.myles.website/"))
+			vc.setInitialText("try to beat my score on kickit.")
 			self.present(vc, animated: true, completion: nil)
 		}
 		
