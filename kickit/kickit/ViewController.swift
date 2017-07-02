@@ -11,13 +11,21 @@ import GameKit
 import Social
 import Pastel
 import GoogleMobileAds
+import AVKit
 
 class ViewController: UIViewController, GADInterstitialDelegate {
 	
 	var interstitial: GADInterstitial!
-	
+    var player: AVAudioPlayer?
+    
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        
+        playSound()
+        player?.prepareToPlay()
+        player?.play()
 		
 		let pastelView = PastelView(frame: view.bounds)
 		
@@ -57,23 +65,48 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 	@IBAction func shareToTwitter(_ sender: Any) {
 		
 		if let vc = SLComposeViewController(forServiceType:SLServiceTypeTwitter){
-			//vc.add(imageView.image!)
+			vc.add(#imageLiteral(resourceName: "appicon"))
 			vc.add(URL(string: "http://www.myles.website/"))
 			vc.setInitialText("try to beat my score on kickit.")
 			self.present(vc, animated: true, completion: nil)
-			
 		}
 	}
 	
 	@IBAction func shareToFacebook(_ sender: Any) {
 		
 		if let vc = SLComposeViewController(forServiceType:SLServiceTypeFacebook){
-			//vc.add(imageView.image!)
+			vc.add(#imageLiteral(resourceName: "appicon"))
 			vc.add(URL(string: "http://www.myles.website/"))
 			vc.setInitialText("try to beat my score on kickit.")
 			self.present(vc, animated: true, completion: nil)
 		}
 		
 	}
+    
+    func playSound() {
+        guard let url = Bundle.main.path(forResource: "KickIt", ofType: "mp3") else {
+            print("error")
+            return
+        }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+            guard player != nil else { return }
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "game" {
+            let destination = segue.destination as! GameViewController
+            destination.holdPlayer = player
+        }
+    }
+    
 }
 
