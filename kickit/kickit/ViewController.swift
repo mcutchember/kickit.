@@ -69,7 +69,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 		
 		if let vc = SLComposeViewController(forServiceType:SLServiceTypeTwitter){
 			vc.add(#imageLiteral(resourceName: "appicon"))
-			vc.add(URL(string: "http://www.myles.website/"))
+			vc.add(URL(string: "https://appsto.re/us/ulMYkb.i"))
 			vc.setInitialText("try to beat my score on kickit.")
 			self.present(vc, animated: true, completion: nil)
 		}
@@ -79,7 +79,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 		
 		if let vc = SLComposeViewController(forServiceType:SLServiceTypeFacebook){
 			vc.add(#imageLiteral(resourceName: "appicon"))
-			vc.add(URL(string: "http://www.myles.website/"))
+			vc.add(URL(string: "https://appsto.re/us/ulMYkb.i"))
 			vc.setInitialText("try to beat my score on kickit.")
 			self.present(vc, animated: true, completion: nil)
 		}

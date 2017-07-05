@@ -15,6 +15,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     
     
     var holdPlayer: AVAudioPlayer!
+    var adCounter = 0
 	
 	// enums
 	fileprivate enum ScreenEdge: Int{
@@ -330,10 +331,12 @@ fileprivate extension GameViewController {
 	}
 	
 	func displayGameOverAlert() {
+        adCounter += 1
 		
-		if interstitial.isReady {
+		if interstitial.isReady && adCounter == 3 {
             holdPlayer.pause()
 			interstitial.present(fromRootViewController: self)
+            adCounter = 0
 		} else {
 			print("Ad wasn't ready")
 			let elapsedSeconds = Int(elapsedTime) % 60
@@ -355,8 +358,8 @@ fileprivate extension GameViewController {
 		let action2 = UIAlertAction(title: "Share your score", style: .default,
 		                            handler: { _ in
                                         
-                                        let elapsedSeconds = Int(self.elapsedTime) % 60
-                                        let text = "I just kicked it for \(elapsedSeconds) seconds! Try to beat me, it's free! Get Kickit on the App Store!"
+                                        //let elapsedSeconds = Int(self.elapsedTime) % 60
+                                        let text = "I just kicked it for \(self.elapsedTime) seconds! Try to beat me, it's free! Get Kickit on the App Store! https://appsto.re/us/ulMYkb.i"
                                         let image = UIImage(named: "appicon")
 
                                         
