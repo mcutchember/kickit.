@@ -179,7 +179,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 
 fileprivate extension GameViewController {
 	func setupPlayerView() {
-		playerView.frame = CGRect(x: 0, y: 0, width: radius * 3, height: radius * 3)
+		playerView.frame = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
 		//playerView.bounds.size = CGSize(width: radius * 2, height: radius * 2)
 		playerView.layer.cornerRadius = radius
 		playerView.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
