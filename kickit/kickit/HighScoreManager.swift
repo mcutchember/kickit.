@@ -87,7 +87,7 @@ class HighScoreManager: NSObject, GKGameCenterControllerDelegate{
 	func saveHighScore(highscore: Int) {
 		
 		if GKLocalPlayer.localPlayer().isAuthenticated {
-			let gkScore = GKScore(leaderboardIdentifier: "kickit_scores")
+			let gkScore = GKScore(leaderboardIdentifier: "002")
 			gkScore.value = Int64(highscore)
 			GKScore.report([gkScore], withCompletionHandler: { (error) in
 				if (error != nil) {

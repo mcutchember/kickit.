@@ -13,7 +13,7 @@ import Pastel
 import GoogleMobileAds
 import AVKit
 
-class ViewController: UIViewController, GADInterstitialDelegate {
+class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterControllerDelegate {
 	
 	var interstitial: GADInterstitial!
     var player: AVAudioPlayer?
@@ -24,8 +24,8 @@ class ViewController: UIViewController, GADInterstitialDelegate {
         
         
         playSound()
-        player?.prepareToPlay()
-        player?.play()
+      //  player?.prepareToPlay()
+     //   player?.play()
 		
 		let pastelView = PastelView(frame: view.bounds)
 		
@@ -56,8 +56,11 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 	
 	@IBAction func highscoreButton(_ sender: Any) {
 
-		let vc: UIViewController = self.view!.window!.rootViewController!
-		vc.present(HighScoreManager.sharedInstance.declareGameCenterController(), animated: true, completion: nil)
+		let gcVC = GKGameCenterViewController()
+		gcVC.gameCenterDelegate = self
+		gcVC.viewState = .leaderboards
+		gcVC.leaderboardIdentifier = "002"
+		present(gcVC, animated: true, completion: nil)
 
 	}
 	
@@ -94,6 +97,7 @@ class ViewController: UIViewController, GADInterstitialDelegate {
             try AVAudioSession.sharedInstance().setActive(true)
             
             player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+			player?.numberOfLoops = -1
             guard player != nil else { return }
             
         } catch let error {
@@ -107,6 +111,11 @@ class ViewController: UIViewController, GADInterstitialDelegate {
             destination.holdPlayer = player
         }
     }
+	
+	// Delegate to dismiss the GC controller
+	func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+		gameCenterViewController.dismiss(animated: true, completion: nil)
+	}
     
 }
 

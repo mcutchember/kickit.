@@ -104,7 +104,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		}
 		
 		// Add the new enemy to the view
-		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 		if let enemy = defaults.data(forKey: "enemyImage") {
 			let imageView = UIImageView(image: UIImage(data: enemy, scale: 0.5))
 			imageView.frame = enemyView.frame
@@ -334,6 +334,8 @@ fileprivate extension GameViewController {
 			interstitial.present(fromRootViewController: self)
 		} else {
 			print("Ad wasn't ready")
+			let elapsedSeconds = Int(elapsedTime) % 60
+			HighScoreManager.sharedInstance.saveHighScore(highscore: elapsedSeconds)
 			showGameOverAlert()
 		}
 		
@@ -410,7 +412,7 @@ fileprivate extension GameViewController {
 
 extension UIView{
     func makeCircular() {
-        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
+        self.layer.cornerRadius = self.frame.size.width / 2.0
         self.clipsToBounds = true
     }
 }
