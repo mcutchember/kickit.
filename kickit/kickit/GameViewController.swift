@@ -160,6 +160,8 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 	
 	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
 		showGameOverAlert()
+		let elapsedSeconds = Int(elapsedTime) % 60
+		HighScoreManager.sharedInstance.saveHighScore(identifier: "kickit_scores", highscore: elapsedSeconds)
 		interstitial = createAndLoadInterstitial()
 	}
 	
