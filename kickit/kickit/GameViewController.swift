@@ -104,10 +104,12 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		}
 		
 		// Add the new enemy to the view
-		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 		if let enemy = defaults.data(forKey: "enemyImage") {
 			let imageView = UIImageView(image: UIImage(data: enemy, scale: 0.5))
 			imageView.frame = enemyView.frame
+			imageView.clipsToBounds = true
+			imageView.contentMode = .scaleAspectFill
 			enemyView.addSubview(imageView)
         } else {
             enemyView.bounds.size = CGSize(width: radius, height: radius)
