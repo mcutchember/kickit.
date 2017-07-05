@@ -14,6 +14,8 @@
 		315001CD1EF2390D0038A0B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315001CB1EF2390D0038A0B5 /* LaunchScreen.storyboard */; };
 		315001D51EF3345D0038A0B5 /* How2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315001D41EF3345D0038A0B5 /* How2ViewController.swift */; };
 		316FDF551EF34B8C00C5C10A /* HighScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FDF541EF34B8C00C5C10A /* HighScoreManager.swift */; };
+		3185579E1F06BF76004C0F35 /* KickIt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3185579D1F06BF76004C0F35 /* KickIt.mp3 */; };
+		318557A01F06C250004C0F35 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3185579F1F06C250004C0F35 /* SoundManager.swift */; };
 		31DCC4AF1EF390C9004070BD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCC4AE1EF390C9004070BD /* GameViewController.swift */; };
 		60DF342C1EFC1ECF00282786 /* UploadCustomImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF342B1EFC1ECF00282786 /* UploadCustomImagesViewController.swift */; };
 		F4B26565FE726884546339B7 /* Pods_kickit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E59B79762F6DFCF8E0FA72 /* Pods_kickit.framework */; };
@@ -30,6 +32,8 @@
 		315001CE1EF2390D0038A0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		315001D41EF3345D0038A0B5 /* How2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = How2ViewController.swift; sourceTree = "<group>"; };
 		316FDF541EF34B8C00C5C10A /* HighScoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreManager.swift; sourceTree = "<group>"; };
+		3185579D1F06BF76004C0F35 /* KickIt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KickIt.mp3; sourceTree = "<group>"; };
+		3185579F1F06C250004C0F35 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		31DCC4AE1EF390C9004070BD /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3580F69DDBC2C4B1A2ACC1E7 /* Pods-kickit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kickit.release.xcconfig"; path = "Pods/Target Support Files/Pods-kickit/Pods-kickit.release.xcconfig"; sourceTree = "<group>"; };
 		60DF342B1EFC1ECF00282786 /* UploadCustomImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadCustomImagesViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				315001CE1EF2390D0038A0B5 /* Info.plist */,
 				316FDF541EF34B8C00C5C10A /* HighScoreManager.swift */,
 				31DCC4AE1EF390C9004070BD /* GameViewController.swift */,
+				3185579D1F06BF76004C0F35 /* KickIt.mp3 */,
+				3185579F1F06C250004C0F35 /* SoundManager.swift */,
 			);
 			path = kickit;
 			sourceTree = "<group>";
@@ -131,7 +137,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Myle$";
+				ORGANIZATIONNAME = Myle$;
 				TargetAttributes = {
 					315001BE1EF2390D0038A0B5 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -171,6 +177,7 @@
 				315001CD1EF2390D0038A0B5 /* LaunchScreen.storyboard in Resources */,
 				315001CA1EF2390D0038A0B5 /* Assets.xcassets in Resources */,
 				315001C81EF2390D0038A0B5 /* Main.storyboard in Resources */,
+				3185579E1F06BF76004C0F35 /* KickIt.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +241,7 @@
 				60DF342C1EFC1ECF00282786 /* UploadCustomImagesViewController.swift in Sources */,
 				315001C51EF2390D0038A0B5 /* ViewController.swift in Sources */,
 				315001D51EF3345D0038A0B5 /* How2ViewController.swift in Sources */,
+				318557A01F06C250004C0F35 /* SoundManager.swift in Sources */,
 				315001C31EF2390D0038A0B5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

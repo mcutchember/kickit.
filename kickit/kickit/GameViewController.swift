@@ -8,8 +8,13 @@
 
 import UIKit
 import GoogleMobileAds
+import AVFoundation
+import GameKit
 
 class GameViewController: UIViewController, GADInterstitialDelegate {
+    
+    
+    var holdPlayer: AVAudioPlayer!
 	
 	// enums
 	fileprivate enum ScreenEdge: Int{
@@ -159,9 +164,18 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 	}
 	
 	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        
+        let elapsedSeconds = Int(elapsedTime) % 60
+        HighScoreManager.sharedInstance.saveHighScore(highscore: elapsedSeconds)
+        
 		showGameOverAlert()
+<<<<<<< HEAD
 		let elapsedSeconds = Int(elapsedTime) % 60
 		HighScoreManager.sharedInstance.saveHighScore(identifier: "kickit_scores", highscore: elapsedSeconds)
+=======
+        holdPlayer.prepareToPlay()
+        holdPlayer.play()
+>>>>>>> origin/menu
 		interstitial = createAndLoadInterstitial()
 	}
 	
@@ -320,6 +334,7 @@ fileprivate extension GameViewController {
 	func displayGameOverAlert() {
 		
 		if interstitial.isReady {
+            holdPlayer.pause()
 			interstitial.present(fromRootViewController: self)
 		} else {
 			print("Ad wasn't ready")
@@ -339,7 +354,23 @@ fileprivate extension GameViewController {
 		)
 		let action2 = UIAlertAction(title: "Share your score", style: .default,
 		                            handler: { _ in
-										self.dismiss(animated: true, completion: nil)
+                                        
+                                        let elapsedSeconds = Int(self.elapsedTime) % 60
+                                        let text = "I just kicked it for \(elapsedSeconds) seconds! Try to beat me, it's free! Get Kickit on the App Store!"
+                                        let image = UIImage(named: "appicon")
+
+                                        
+                                        // set up activity view controller
+                                        let textToShare = [ text, image! ] as [Any]
+                                        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                                        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                                        
+                                        // exclude some activity types from the list (optional)
+                                        activityViewController.excludedActivityTypes = [UIActivityType.airDrop]
+                                        
+                                        // present the view controller
+                                        self.present(activityViewController, animated: true, completion: nil)
+                                        self.prepareGame()
 		}
 		)
 		alert.addAction(action)
@@ -351,10 +382,10 @@ fileprivate extension GameViewController {
 		let elapsedSeconds = Int(elapsedTime) % 60
 		switch elapsedSeconds {
 		case 0..<10: return ("Try again 😂", "Seriously, you need more practice 😒")
-		case 10..<30: return ("Another go 😉", "Not bad, you are getting there 😁")
+		case 10..<30: return ("Another go 😉", "Not bad, you're getting there 😁")
 		case 30..<60: return ("Play again 😉", "Very good 👍")
 		default:
-			return ("You're the GOAT 😚", "Legend, olympic player, go 🇧🇷")
+			return ("You're the GOAT 😚", "Legend, olympic thumb player, go 🇺🇸")
 		}
 	}
 	
