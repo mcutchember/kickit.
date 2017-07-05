@@ -24,6 +24,15 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		picker.delegate = self
+		
+		if let enemyImage = defaults.data(forKey: "enemyImage") {
+			enemyButton.setImage(UIImage(data: enemyImage), for: .normal)
+		}
+		
+		if let playerImage = defaults.data(forKey: "playerImage") {
+			playerButton.setImage(UIImage(data: playerImage), for: .normal)
+		}
+		
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -57,8 +66,8 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
     @IBAction func resetButton(_ sender: Any) {
         
         let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
+        defaults.removePersistentDomain(forName: domain)
+       // UserDefaults.standard.synchronize()
         
         // set enemy back
         enemyButton.setImage(#imageLiteral(resourceName: "enemy"), for: .normal)
@@ -84,7 +93,6 @@ class UploadCustomImagesViewController: UIViewController, UIImagePickerControlle
 		case "Enemy":
 			self.defaults.set(pngImageData, forKey: "enemyImage")
             enemyButton.setImage(image, for: .normal)
-            
 			print("Enemy image saved!")
 			break
 		case "Player":
