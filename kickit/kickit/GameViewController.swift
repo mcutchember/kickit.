@@ -170,12 +170,19 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         
 		showGameOverAlert()
 <<<<<<< HEAD
+<<<<<<< HEAD
 		let elapsedSeconds = Int(elapsedTime) % 60
 		HighScoreManager.sharedInstance.saveHighScore(identifier: "kickit_scores", highscore: elapsedSeconds)
 =======
         holdPlayer.prepareToPlay()
         holdPlayer.play()
 >>>>>>> origin/menu
+=======
+
+        holdPlayer.prepareToPlay()
+        holdPlayer.play()
+
+>>>>>>> d0a67d14c6063cd46b59370a5181fe8934660dd1
 		interstitial = createAndLoadInterstitial()
 	}
 	
