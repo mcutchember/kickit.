@@ -104,7 +104,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		}
 		
 		// Add the new enemy to the view
-		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+		let enemyView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
 		if let enemy = defaults.data(forKey: "enemyImage") {
 			let imageView = UIImageView(image: UIImage(data: enemy, scale: 0.5))
 			imageView.frame = enemyView.frame
@@ -190,7 +190,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 
 fileprivate extension GameViewController {
 	func setupPlayerView() {
-		playerView.frame = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
+		playerView.frame = CGRect(x: 0, y: 0, width: radius * 3, height: radius * 3)
 		//playerView.bounds.size = CGSize(width: radius * 2, height: radius * 2)
 		playerView.layer.cornerRadius = radius
 		playerView.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
