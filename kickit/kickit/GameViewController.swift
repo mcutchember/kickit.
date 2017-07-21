@@ -16,6 +16,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     
     var holdPlayer: AVAudioPlayer!
     var adCounter = 0
+    var playerLives = 3
 	
 	// enums
 	fileprivate enum ScreenEdge: Int{
@@ -59,12 +60,18 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 	@IBOutlet var startLabel: UILabel!
 	@IBOutlet var clockLabel: UILabel!
 	@IBOutlet var backButton: UIButton!
+    
+    @IBOutlet var live3: UIImageView!
+    @IBOutlet var live2: UIImageView!
+    @IBOutlet var live1: UIImageView!
+    @IBOutlet var lives: [UIImageView]!
 	
 	
 	var enemyImage: UIImage?
 	var playerImage: UIImage?
 	var defaults = UserDefaults.standard
 	
+    
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -176,6 +183,12 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         holdPlayer.play()
 
 		interstitial = createAndLoadInterstitial()
+        
+        for life in lives {
+            life.isHidden = false
+        }
+        clockLabel.text = "00:00.000"
+        beginTimestamp = 0
 	}
 	
 }
@@ -233,15 +246,41 @@ fileprivate extension GameViewController {
 	}
 	
 	func gameOver() {
+        
+        
+        switch adCounter {
+        case 0:
+            lives[0].isHidden = true
+            print("3 lives")
+            playerLives -= 1
+            break
+        case 1:
+            lives[1].isHidden = true
+            print("2 lives")
+            break
+        case 2:
+            lives[2].isHidden = true
+            print("0 lives")
+            
+            break
+        default:
+            
+            break
+        }
+        
 		stopGame()
 		displayGameOverAlert()
 	}
 	
 	func stopGame() {
+
 		stopEnemyTimer()
 		stopDisplayLink()
 		stopAnimators()
 		gameState = .gameOver
+        
+        HighScoreManager.sharedInstance.saveHighScore(highscore: Int(elapsedTime))
+        print(elapsedTime)
 	}
 	
 	func prepareGame() {
@@ -249,7 +288,6 @@ fileprivate extension GameViewController {
 		centerPlayerView()
 		popPlayerView()
 		startLabel.isHidden = false
-		clockLabel.text = "00:00.000"
 		gameState = .ready
 	}
 	
@@ -257,7 +295,7 @@ fileprivate extension GameViewController {
 		startEnemyTimer()
 		startDisplayLink()
 		startLabel.isHidden = true
-		beginTimestamp = 0
+		//beginTimestamp = 0
 		gameState = .playing
 	}
 	
@@ -304,7 +342,7 @@ fileprivate extension GameViewController {
 			if enemyFrame.intersects(($0.layer.presentation()?.frame)!) {
 				print("Yes")
 			}
-			
+            
 			gameOver()
 		}
 	}
@@ -331,7 +369,11 @@ fileprivate extension GameViewController {
 	}
 	
 	func displayGameOverAlert() {
+        
+        
+        
         adCounter += 1
+        print(adCounter)
 		
 		if interstitial.isReady && adCounter == 3 {
             holdPlayer.pause()
@@ -339,8 +381,7 @@ fileprivate extension GameViewController {
             adCounter = 0
 		} else {
 			print("Ad wasn't ready")
-			let elapsedSeconds = Int(elapsedTime) % 60
-			HighScoreManager.sharedInstance.saveHighScore(highscore: elapsedSeconds)
+			//let elapsedSeconds = Int(elapsedTime) % 60
 			showGameOverAlert()
 		}
 		
@@ -359,7 +400,7 @@ fileprivate extension GameViewController {
 		                            handler: { _ in
                                         
                                         //let elapsedSeconds = Int(self.elapsedTime) % 60
-                                        let text = "I just kicked it for \(self.elapsedTime) seconds! Try to beat me, it's free! Get Kickit on the App Store! https://appsto.re/us/ulMYkb.i"
+                                        let text = "I just kicked it for \(String(describing: self.clockLabel.text!)) seconds! Try to beat me, it's free! Get Kickit on the App Store! https://appsto.re/us/ulMYkb.i"
                                         let image = UIImage(named: "appicon")
 
                                         
