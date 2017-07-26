@@ -10,6 +10,8 @@
 import UIKit
 import GoogleMobileAds
 import AVFoundation
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		
 		 GADMobileAds.configure(withApplicationID: "ca-app-pub-7367066270682286~4854724057")
-        
+         Fabric.with([Crashlytics.self])
+
 		
         return true
     }

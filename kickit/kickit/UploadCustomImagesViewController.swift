@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CenteredCollectionView
 
 class UploadCustomImagesViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	

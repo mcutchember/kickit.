@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "play"; ObjectID = "1jh-Pu-h3O"; */
+"1jh-Pu-h3O.normalTitle" = "play";
+
+/* Class = "UIButton"; normalTitle = "how 2 play?"; ObjectID = "2NI-rf-IsA"; */
+"2NI-rf-IsA.normalTitle" = "how 2 play?";
+
+/* Class = "UILabel"; text = "player"; ObjectID = "33G-Xn-LKX"; */
+"33G-Xn-LKX.text" = "player";
+
+/* Class = "UIButton"; normalTitle = "reset"; ObjectID = "9zZ-Yk-YhQ"; */
+"9zZ-Yk-YhQ.normalTitle" = "reset";
+
+/* Class = "UIButton"; normalTitle = "Ok, i got it."; ObjectID = "DvH-DN-XRH"; */
+"DvH-DN-XRH.normalTitle" = "Ok, i got it.";
+
+/* Class = "UILabel"; text = "How 2 Play?"; ObjectID = "FBd-ge-T5X"; */
+"FBd-ge-T5X.text" = "How 2 Play?";
+
+/* Class = "UILabel"; text = "2. avoid getting hit by the squares"; ObjectID = "FNf-rG-21F"; */
+"FNf-rG-21F.text" = "2. avoid getting hit by the squares";
+
+/* Class = "UIButton"; normalTitle = "customize"; ObjectID = "Hjs-oo-5uT"; */
+"Hjs-oo-5uT.normalTitle" = "customize";
+
+/* Class = "UILabel"; text = "Tap to start"; ObjectID = "I34-OB-Mez"; */
+"I34-OB-Mez.text" = "Tap to start";
+
+/* Class = "UIButton"; normalTitle = "Ok, I got it"; ObjectID = "IZk-rG-tOp"; */
+"IZk-rG-tOp.normalTitle" = "Ok, I got it";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "L6Q-J1-2b4"; */
+"L6Q-J1-2b4.normalTitle" = "Reset";
+
+/* Class = "UILabel"; text = "Select Player"; ObjectID = "LC4-8i-gsJ"; */
+"LC4-8i-gsJ.text" = "Select Player";
+
+/* Class = "UILabel"; text = "Upload your custom images"; ObjectID = "PKQ-87-q1r"; */
+"PKQ-87-q1r.text" = "Upload your custom images";
+
+/* Class = "UIButton"; normalTitle = "highscores"; ObjectID = "Tce-dI-Jzt"; */
+"Tce-dI-Jzt.normalTitle" = "highscores";
+
+/* Class = "UILabel"; text = "enemy"; ObjectID = "Y1o-eK-UHe"; */
+"Y1o-eK-UHe.text" = "enemy";
+
+/* Class = "UILabel"; text = "00:00:000"; ObjectID = "aZY-03-20W"; */
+"aZY-03-20W.text" = "00:00:000";
+
+/* Class = "UIButton"; normalTitle = "ok, i got it."; ObjectID = "mQA-Rj-LuU"; */
+"mQA-Rj-LuU.normalTitle" = "ok, i got it.";
+
+/* Class = "UILabel"; text = "1. tap the screen in the direction you want the ball to move."; ObjectID = "qZU-ot-UMl"; */
+"qZU-ot-UMl.text" = "1. tap the screen in the direction you want the ball to move.";
