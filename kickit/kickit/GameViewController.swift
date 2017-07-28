@@ -206,6 +206,7 @@ fileprivate extension GameViewController {
 			imageView.frame = playerView.frame
 			playerView.makeCircular()
 			playerView.addSubview(imageView)
+			playerView.backgroundColor = .clear
 		}
 		
 		view.addSubview(playerView)
@@ -250,26 +251,34 @@ fileprivate extension GameViewController {
         
         switch adCounter {
         case 0:
+			adCounter += 1
             lives[0].isHidden = true
             print("3 lives")
             playerLives -= 1
+			removeEnemies()
+			stopGame()
+			startGame()
             break
         case 1:
+			adCounter += 1
             lives[1].isHidden = true
             print("2 lives")
+			removeEnemies()
+			stopGame()
+			startGame()
             break
         case 2:
+			adCounter += 1
             lives[2].isHidden = true
             print("0 lives")
-            
+			stopGame()
+            displayGameOverAlert()
             break
         default:
             
             break
         }
-        
-		stopGame()
-		displayGameOverAlert()
+		
 	}
 	
 	func stopGame() {
@@ -338,10 +347,6 @@ fileprivate extension GameViewController {
 				playerFrame.intersects(enemyFrame) else {
 					return
 			}
-			
-			if enemyFrame.intersects(($0.layer.presentation()?.frame)!) {
-				print("Yes")
-			}
             
 			gameOver()
 		}
@@ -369,11 +374,6 @@ fileprivate extension GameViewController {
 	}
 	
 	func displayGameOverAlert() {
-        
-        
-        
-        adCounter += 1
-        print(adCounter)
 		
 		if interstitial.isReady && adCounter == 3 {
             holdPlayer.pause()
