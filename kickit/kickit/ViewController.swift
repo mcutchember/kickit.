@@ -13,19 +13,19 @@ import Pastel
 import GoogleMobileAds
 import AVKit
 
-class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterControllerDelegate {
+class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterControllerDelegate, GADBannerViewDelegate {
 	
 	var interstitial: GADInterstitial!
-    var player: AVAudioPlayer?
-    
-    
+	var player: AVAudioPlayer?
+	let ADMOB_BANNER_UNIT_ID = "ca-app-pub-7367066270682286/5248259152"
+	var adMobBannerView = GADBannerView()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        
-        
-        playSound()
-        player?.prepareToPlay()
-        player?.play()
+		
+		playSound()
+		player?.prepareToPlay()
+		player?.play()
 		
 		let pastelView = PastelView(frame: view.bounds)
 		
@@ -53,15 +53,19 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 		
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		// Init AdMob banner
+		initAdMobBanner()
+	}
 	
 	@IBAction func highscoreButton(_ sender: Any) {
-
+		
 		let gcVC = GKGameCenterViewController()
 		gcVC.gameCenterDelegate = self
 		gcVC.viewState = .leaderboards
 		gcVC.leaderboardIdentifier = "002"
 		present(gcVC, animated: true, completion: nil)
-
+		
 	}
 	
 	
@@ -85,37 +89,90 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 		}
 		
 	}
-    
-    func playSound() {
-        guard let url = Bundle.main.path(forResource: "KickIt", ofType: "mp3") else {
-            print("error")
-            return
-        }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+	
+	func playSound() {
+		guard let url = Bundle.main.path(forResource: "KickIt", ofType: "mp3") else {
+			print("error")
+			return
+		}
+		
+		do {
+			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+			try AVAudioSession.sharedInstance().setActive(true)
+			
+			player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
 			player?.numberOfLoops = -1
-            guard player != nil else { return }
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "game" {
-            let destination = segue.destination as! GameViewController
-            destination.holdPlayer = player
-        }
-    }
+			guard player != nil else { return }
+			
+		} catch let error {
+			print(error.localizedDescription)
+		}
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "game" {
+			let destination = segue.destination as! GameViewController
+			destination.holdPlayer = player
+		}
+	}
 	
 	// Delegate to dismiss the GC controller
 	func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
 		gameCenterViewController.dismiss(animated: true, completion: nil)
 	}
-    
+	
+	// MARK: Banner Delegates
+	
+	// MARK: -  ADMOB BANNER
+	func initAdMobBanner() {
+		
+		if UIDevice.current.userInterfaceIdiom == .phone {
+			// iPhone
+			adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
+			adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 320, height: 50)
+		} else  {
+			// iPad
+			adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
+			adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 468, height: 60)
+		}
+		
+		adMobBannerView.adSize = kGADAdSizeSmartBannerPortrait
+		adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
+		adMobBannerView.rootViewController = self
+		adMobBannerView.delegate = self
+		view.addSubview(adMobBannerView)
+		
+		let request = GADRequest()
+		request.testDevices = [ kGADSimulatorID, "B270CD6C-F126-4C2D-937D-3B5D67056257" ];
+		adMobBannerView.load(request)
+	}
+	
+	
+	// Hide the banner
+	func hideBanner(_ banner: UIView) {
+		UIView.beginAnimations("hideBanner", context: nil)
+		banner.frame = CGRect(x: view.frame.size.width/2 - banner.frame.size.width/2, y: view.frame.size.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
+		UIView.commitAnimations()
+		banner.isHidden = true
+	}
+	
+	// Show the banner
+	func showBanner(_ banner: UIView) {
+		UIView.beginAnimations("showBanner", context: nil)
+		banner.frame = CGRect(x: view.frame.size.width/2 - banner.frame.size.width/2, y: view.frame.size.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
+		UIView.commitAnimations()
+		banner.isHidden = false
+	}
+	
+	// AdMob banner available
+	func adViewDidReceiveAd(_ view: GADBannerView) {
+		showBanner(adMobBannerView)
+	}
+	
+	// NO AdMob banner available
+	func adView(_ view: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+		hideBanner(adMobBannerView)
+	}
+	
 }
 
