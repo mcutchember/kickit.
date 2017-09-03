@@ -120,8 +120,18 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 			imageView.contentMode = .scaleAspectFill
 			enemyView.addSubview(imageView)
         } else {
+			
+			// TODO: change to actual emojies
+			let enemyEmojies = [#imageLiteral(resourceName: "angel"),#imageLiteral(resourceName: "cat"),#imageLiteral(resourceName: "devil")];
+			let diceRoll = Int(arc4random_uniform(3))
+			let imageView = UIImageView(image: enemyEmojies[diceRoll])
+			
+			imageView.frame = enemyView.frame
+			imageView.clipsToBounds = true
+			imageView.contentMode = .scaleAspectFill
+			enemyView.addSubview(imageView)
+			
             enemyView.bounds.size = CGSize(width: radius, height: radius)
-            enemyView.backgroundColor = getRandomColor()
         }
 		
 
