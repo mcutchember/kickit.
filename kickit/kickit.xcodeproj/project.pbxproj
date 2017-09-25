@@ -21,6 +21,9 @@
 		316FDF551EF34B8C00C5C10A /* HighScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FDF541EF34B8C00C5C10A /* HighScoreManager.swift */; };
 		3185579E1F06BF76004C0F35 /* KickIt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3185579D1F06BF76004C0F35 /* KickIt.mp3 */; };
 		31DCC4AF1EF390C9004070BD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCC4AE1EF390C9004070BD /* GameViewController.swift */; };
+		31FAF22C1F78554D0015F818 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAF22B1F78554D0015F818 /* SongViewController.swift */; };
+		31FAF22E1F7857D50015F818 /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAF22D1F7857D50015F818 /* Songs.swift */; };
+		31FAF2301F78594E0015F818 /* SongViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAF22F1F78594E0015F818 /* SongViewCell.swift */; };
 		60DF342C1EFC1ECF00282786 /* UploadCustomImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF342B1EFC1ECF00282786 /* UploadCustomImagesViewController.swift */; };
 		F4B26565FE726884546339B7 /* Pods_kickit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E59B79762F6DFCF8E0FA72 /* Pods_kickit.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,9 @@
 		316FDF541EF34B8C00C5C10A /* HighScoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreManager.swift; sourceTree = "<group>"; };
 		3185579D1F06BF76004C0F35 /* KickIt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KickIt.mp3; sourceTree = "<group>"; };
 		31DCC4AE1EF390C9004070BD /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		31FAF22B1F78554D0015F818 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		31FAF22D1F7857D50015F818 /* Songs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
+		31FAF22F1F78594E0015F818 /* SongViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongViewCell.swift; path = ../SongViewCell.swift; sourceTree = "<group>"; };
 		3580F69DDBC2C4B1A2ACC1E7 /* Pods-kickit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kickit.release.xcconfig"; path = "Pods/Target Support Files/Pods-kickit/Pods-kickit.release.xcconfig"; sourceTree = "<group>"; };
 		60DF342B1EFC1ECF00282786 /* UploadCustomImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadCustomImagesViewController.swift; sourceTree = "<group>"; };
 		A3E59B79762F6DFCF8E0FA72 /* Pods_kickit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kickit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +110,9 @@
 				3125204E1F293D8500F8AAC7 /* Characters.swift */,
 				312520501F293DE500F8AAC7 /* CharacterViewController.swift */,
 				312520521F293EA000F8AAC7 /* CharacterViewCell.swift */,
+				31FAF22B1F78554D0015F818 /* SongViewController.swift */,
+				31FAF22D1F7857D50015F818 /* Songs.swift */,
+				31FAF22F1F78594E0015F818 /* SongViewCell.swift */,
 			);
 			path = kickit;
 			sourceTree = "<group>";
@@ -268,12 +277,15 @@
 				31DCC4AF1EF390C9004070BD /* GameViewController.swift in Sources */,
 				3125204F1F293D8500F8AAC7 /* Characters.swift in Sources */,
 				316FDF551EF34B8C00C5C10A /* HighScoreManager.swift in Sources */,
+				31FAF2301F78594E0015F818 /* SongViewCell.swift in Sources */,
 				312520531F293EA000F8AAC7 /* CharacterViewCell.swift in Sources */,
 				60DF342C1EFC1ECF00282786 /* UploadCustomImagesViewController.swift in Sources */,
 				312520511F293DE500F8AAC7 /* CharacterViewController.swift in Sources */,
 				315001C51EF2390D0038A0B5 /* ViewController.swift in Sources */,
+				31FAF22C1F78554D0015F818 /* SongViewController.swift in Sources */,
 				315001D51EF3345D0038A0B5 /* How2ViewController.swift in Sources */,
 				315001C31EF2390D0038A0B5 /* AppDelegate.swift in Sources */,
+				31FAF22E1F7857D50015F818 /* Songs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -111,49 +111,49 @@ extension CharacterViewController : UIScrollViewDelegate, UICollectionViewDelega
 		
 		switch characterNum {
 		case 0:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "fire")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "fire")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "earth")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 1:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "ghost")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "ghost")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "girl")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 2:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "devil")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "devil")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "angel")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 3:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "cat")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "cat")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "mouse")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 4:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "plate")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "plate")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "eat")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 5:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "mink2")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "mink2")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "mink")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 6:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "lyle2")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "lyle2")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "julian1")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break
 		case 7:
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "lyle")), forKey: "enemyImage")
+			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "lyle")), forKey: "enemyImage")
 			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "julian")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")

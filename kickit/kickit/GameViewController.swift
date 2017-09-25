@@ -119,16 +119,20 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 			imageView.clipsToBounds = true
 			imageView.contentMode = .scaleAspectFill
 			enemyView.addSubview(imageView)
+            
         } else {
 			
 			// TODO: change to actual emojies
-			let enemyEmojies = [#imageLiteral(resourceName: "angel"),#imageLiteral(resourceName: "cat"),#imageLiteral(resourceName: "devil")];
+			let enemyEmojies = [#imageLiteral(resourceName: "heart"),#imageLiteral(resourceName: "timer"),#imageLiteral(resourceName: "devil")];
 			let diceRoll = Int(arc4random_uniform(3))
 			let imageView = UIImageView(image: enemyEmojies[diceRoll])
 			
+        
+            
 			imageView.frame = enemyView.frame
 			imageView.clipsToBounds = true
 			imageView.contentMode = .scaleAspectFill
+            enemyView.tag = diceRoll
 			enemyView.addSubview(imageView)
 			
             enemyView.bounds.size = CGSize(width: radius, height: radius)
@@ -355,10 +359,61 @@ fileprivate extension GameViewController {
 			guard let playerFrame = playerView.layer.presentation()?.frame,
 				let enemyFrame = $0.layer.presentation()?.frame,
 				playerFrame.intersects(enemyFrame) else {
+                    switch $0.tag {
+                    case 0:
+                        
+                        break
+                    case 1:
+                       // print("ADD HEALTH")
+                        break
+                    case 2:
+                       // print("ADD TIME")
+                        break
+                        
+                    default: break
+                        
+                    }
 					return
 			}
             
-			gameOver()
+            if $0.tag == 0 {
+                print("HEALTH GAIN")
+                if lives[0].isHidden == false {
+                    
+                } else {
+                    switch adCounter{
+                    case 0:
+                        break
+                    case 1:
+                        adCounter -= 1
+                        lives[0].isHidden = false
+                        break
+                    case 2:
+                        adCounter -= 1
+                        lives[1].isHidden = false
+                        break
+                    case 3:
+                        adCounter -= 1
+                        lives[2].isHidden = false
+                        break
+                    default:
+                        break
+                    }
+                    
+                    
+                    removeEnemies()
+                }
+                
+            } else if $0.tag == 1 {
+                print("GAIN TIME")
+                clockLabel.text = format(timeInterval: elapsedTime + 60)
+                
+                removeEnemies()
+                
+            } else {
+                gameOver()
+            }
+			
 		}
 	}
 	
