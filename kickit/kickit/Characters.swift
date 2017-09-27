@@ -28,15 +28,15 @@ class Characters
     static func fetchInterests() -> [Characters]
     {
         return [
-            Characters(title: "", featuredImage: UIImage(named: "f1")!, color: .clear),
-            Characters(title: "", featuredImage: UIImage(named: "f2")!, color: .clear),
-            Characters(title: "", featuredImage: UIImage(named: "f3")!, color: .clear),
-            Characters(title: "", featuredImage: UIImage(named: "f4")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "earth")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "girl")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "angel")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "cat")!, color: .clear),
             
-            Characters(title: "", featuredImage: UIImage(named: "f5")!, color: .clear),
-            Characters(title: "", featuredImage: UIImage(named: "f6")!, color: .clear),
-            Characters(title: "", featuredImage: UIImage(named: "f7")!, color: .clear),
-            Characters(title: "", featuredImage: UIImage(named: "f8")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "eat")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "mink")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "julian1")!, color: .clear),
+            Characters(title: "", featuredImage: UIImage(named: "julian")!, color: .clear),
         ]
     }
 }

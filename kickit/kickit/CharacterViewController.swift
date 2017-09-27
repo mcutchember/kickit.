@@ -130,7 +130,7 @@ extension CharacterViewController : UIScrollViewDelegate, UICollectionViewDelega
 			break
 		case 3:
 			//self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "cat")), forKey: "enemyImage")
-			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "mouse")), forKey: "playerImage")
+			self.defaults.set(UIImagePNGRepresentation(#imageLiteral(resourceName: "cat")), forKey: "playerImage")
 			print("Enemy image saved!")
 			print("Player image saved!")
 			break

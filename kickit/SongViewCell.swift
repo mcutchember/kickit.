@@ -23,8 +23,8 @@ class SongViewCell: UICollectionViewCell
     private func updateUI()
     {
         if let interest = interest {
-           // featuredImageView.image = interest.featuredImage
-            interestTitleLabel.text = interest.title
+            featuredImageView.image = interest.featuredImage
+            //interestTitleLabel.text = interest.title
             
         } else {
             featuredImageView.image = nil

@@ -19,6 +19,13 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 	var player: AVAudioPlayer?
 	let ADMOB_BANNER_UNIT_ID = "ca-app-pub-7367066270682286/5248259152"
 	var adMobBannerView = GADBannerView()
+    var song: String?
+    var defaults = UserDefaults.standard
+    
+    
+    
+    
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -55,6 +62,9 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 	
 	override func viewDidAppear(_ animated: Bool) {
 		// Init AdMob banner
+        if defaults.data(forKey: "songSelect") != nil {
+            song = "rainbow"
+        }
 		initAdMobBanner()
 	}
 	
@@ -89,9 +99,12 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 		}
 		
 	}
+    
+   
+        
 	
 	func playSound() {
-		guard let url = Bundle.main.path(forResource: "KickIt", ofType: "mp3") else {
+		guard let url = Bundle.main.path(forResource: "rainbow", ofType: "mp3") else {
 			print("error")
 			return
 		}

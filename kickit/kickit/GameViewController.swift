@@ -123,8 +123,8 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         } else {
 			
 			// TODO: change to actual emojies
-			let enemyEmojies = [#imageLiteral(resourceName: "heart"),#imageLiteral(resourceName: "timer"),#imageLiteral(resourceName: "devil")];
-			let diceRoll = Int(arc4random_uniform(3))
+			let enemyEmojies = [#imageLiteral(resourceName: "heart"),#imageLiteral(resourceName: "timer"),#imageLiteral(resourceName: "devil"), #imageLiteral(resourceName: "heartbreak"), #imageLiteral(resourceName: "spider"), #imageLiteral(resourceName: "fed"), #imageLiteral(resourceName: "uglyson"), #imageLiteral(resourceName: "feds"), #imageLiteral(resourceName: "death"), #imageLiteral(resourceName: "trump"), #imageLiteral(resourceName: "shitty"), #imageLiteral(resourceName: "snake")];
+			let diceRoll = Int(arc4random_uniform(12))
 			let imageView = UIImageView(image: enemyEmojies[diceRoll])
 			
         
@@ -406,7 +406,7 @@ fileprivate extension GameViewController {
                 
             } else if $0.tag == 1 {
                 print("GAIN TIME")
-                clockLabel.text = format(timeInterval: elapsedTime + 60)
+                //clockLabel.text = format(timeInterval: elapsedTime + 60)
                 
                 removeEnemies()
                 
