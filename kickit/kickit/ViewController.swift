@@ -54,6 +54,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 		HighScoreManager.sharedInstance.authenticateLocalPlayer(view: self.view)
 		HighScoreManager.sharedInstance.loadAcheivementPercentages()
 		
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +62,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
         if defaults.data(forKey: "songSelect") != nil {
             song = "rainbow"
         }
+		
 		initAdMobBanner()
 	}
 	

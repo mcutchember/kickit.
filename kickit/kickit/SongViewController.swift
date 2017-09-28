@@ -45,6 +45,10 @@ class SongViewController: UIViewController
     }
     
     @IBAction func okAction(_ sender: UIButton) {
+		
+		if let presenter = presentingViewController as? ViewController {
+			presenter.player = holdPlayer;
+		}
         dismiss(animated: true, completion: nil)
 	}
 	
@@ -63,7 +67,7 @@ class SongViewController: UIViewController
             
             holdPlayer = try AVAudioPlayer(contentsOf: url)
             guard let player = holdPlayer else { return }
-			
+			player.prepareToPlay();
             player.play()
         } catch let error {
             print(error.localizedDescription)
