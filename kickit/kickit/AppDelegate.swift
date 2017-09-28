@@ -9,7 +9,6 @@
 
 import UIKit
 import GoogleMobileAds
-import AVFoundation
 import Fabric
 import Crashlytics
 

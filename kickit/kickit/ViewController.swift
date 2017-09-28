@@ -22,10 +22,6 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
     var song: String?
     var defaults = UserDefaults.standard
     
-    
-    
-    
-
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -125,6 +121,9 @@ class ViewController: UIViewController, GADInterstitialDelegate, GKGameCenterCon
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "game" {
 			let destination = segue.destination as! GameViewController
+			destination.holdPlayer = player
+		} else if segue.identifier == "songSelect" {
+			let destination = segue.destination as! SongViewController
 			destination.holdPlayer = player
 		}
 	}

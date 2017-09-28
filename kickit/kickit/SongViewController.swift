@@ -12,24 +12,18 @@ class SongViewController: UIViewController
 {
     
     var holdPlayer: AVAudioPlayer?
-
-    
-   
-    
-    
-    
+	
     var enemyImage: UIImage?
     var playerImage: UIImage?
     
     var defaults = UserDefaults.standard
     var characterNum = 0
-    
+	
+	var song = Songs.fetchInterests()
+	let cellScaling: CGFloat = 0.6
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var song = Songs.fetchInterests()
-    let cellScaling: CGFloat = 0.6
-    
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,26 +41,16 @@ class SongViewController: UIViewController
         
         collectionView?.dataSource = self
         collectionView?.delegate = self
-        holdPlayer?.pause()
         
     }
     
     @IBAction func okAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
-        
-        
-    }
-    
-    
-   
-    
+	}
+	
     @IBAction func resetButton(_ sender: Any) {
-        
         let domain = Bundle.main.bundleIdentifier!
         defaults.removePersistentDomain(forName: domain)
-        // UserDefaults.standard.synchronize()
-        
-        // set enemy back
     }
     
     
@@ -79,12 +63,18 @@ class SongViewController: UIViewController
             
             holdPlayer = try AVAudioPlayer(contentsOf: url)
             guard let player = holdPlayer else { return }
-            
+			
             player.play()
         } catch let error {
             print(error.localizedDescription)
         }
     }
+	
+	func stopSound() {
+		guard let player = holdPlayer else { return }
+		player.stop();
+		print(player.isPlaying);
+	}
     
 }
 
@@ -140,30 +130,36 @@ extension SongViewController : UIScrollViewDelegate, UICollectionViewDelegate
         
         switch characterNum {
         case 0:
+			print(holdPlayer?.isPlaying);
             playSound(sound: song[0].title)
             self.defaults.set(song[0].title, forKey: "songSelect")
             print("Sound saved!")
             
             break
         case 1:
+			print(holdPlayer?.isPlaying);
+			stopSound();
             playSound(sound: song[1].title)
             self.defaults.set(song[1].title, forKey: "songSelect")
             print("Sound saved!")
 
             break
         case 2:
+			stopSound();
             playSound(sound: song[2].title)
             self.defaults.set(song[2].title, forKey: "songSelect")
             print("Sound saved!")
 
             break
         case 3:
+			stopSound();
             playSound(sound: song[3].title)
             self.defaults.set(song[3].title, forKey: "songSelect")
             print("Sound saved!")
 
             break
         case 4:
+			stopSound();
             playSound(sound: song[4].title)
             self.defaults.set(song[4].title, forKey: "songSelect")
             print("Sound saved!")

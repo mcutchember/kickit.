@@ -195,7 +195,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
 		showGameOverAlert()
         holdPlayer.prepareToPlay()
         holdPlayer.play()
-
+		
 		interstitial = createAndLoadInterstitial()
         
         for life in lives {
